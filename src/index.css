@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif SC", "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", "Noto Serif SC", serif;
+  --font-mono: "Space Grotesk", ui-monospace, monospace;
+
+  --color-brand-bg: #E3E1E6;
+  --color-brand-assist: #ECEAF0;
+  --color-brand-dark: #12151F;
+  --color-brand-accent: #8E9BBF;
+  --color-brand-deco: #CCD3E5;
+}
+
+@layer base {
+  body {
+    background-color: #E2E0E5;
+    color: #12151F;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Luxurious noise overlays imitating real physical silver halide film grain */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'%3E%3C/rect%3E%3C/svg%3E");
+}
+
+/* Luxurious scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E3E1E6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CCD3E5;
+  border: 2px solid #E3E1E6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8E9BBF;
+}
+
+/* 3D Pearl component using extreme radial offsets of white, silver and soft violet blush */
+.pearl-bead {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, 
+    #ffffff 0%, 
+    #faf6fc 20%, 
+    #e8e2ee 50%, 
+    #c9bed4 85%, 
+    #dfd5e7 100%
+  );
+  box-shadow: 
+    inset -1px -1px 3px rgba(142, 120, 160, 0.45),
+    1px 2px 4px rgba(30, 35, 51, 0.16);
+  position: relative;
+}
+
+/* Larger Pearl Bead for status headings */
+.pearl-bead-lg {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, 
+    #ffffff 0%, 
+    #fdfbff 15%, 
+    #efeaf5 40%, 
+    #d1c5de 75%, 
+    #e6ddf0 100%
+  );
+  box-shadow: 
+    inset -2px -2px 5px rgba(122, 100, 140, 0.5),
+    1px 3px 6px rgba(30, 35, 51, 0.22);
+}
+
+/* Elegant string-of-pearls border utility */
+.pearl-string {
+  background-image: radial-gradient(circle, #ffffff 60%, transparent 100%);
+  background-size: 8px 8px;
+  background-repeat: repeat-x;
+}
+
+/* High-fidelity glassmorphism with liquid silver backplate and double border reflections */
+.silver-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(236, 234, 240, 0.45) 50%, rgba(217, 221, 232, 0.3) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 1px 1px rgba(255, 255, 255, 0.8) inset,
+    0 8px 32px -6px rgba(30, 35, 51, 0.08);
+}
+
+/* Dark misty silver glass representing the mysterious shadow frames of the reference */
+.silver-glass-dark {
+  background: linear-gradient(180deg, rgba(30, 35, 51, 0.08) 0%, rgba(18, 21, 31, 0.04) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px -5px rgba(18, 21, 31, 0.12);
+}
+
+/* Soft photograph-style halo effect */
+.soft-glow-halo {
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.75)) drop-shadow(0 0 40px rgba(142, 155, 191, 0.35));
+}
+
+.silver-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.silver-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 55%
+  );
+  transform: rotate(-45deg);
+  animation: shimmer 10s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translate(-30%, -30%) rotate(-45deg);
+  }
+  100% {
+    transform: translate(30%, 30%) rotate(-45deg);
+  }
+}
+
+.glass-reflection {
+  position: relative;
+}
+
+.glass-reflection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Vertical text layout for catalog notations */
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Gentle text letter spacing */
+.editorial-tracking {
+  letter-spacing: 0.18em;
+}
+
+.museum-glow {
+  box-shadow: 0 20px 60px -20px rgba(26, 32, 48, 0.22), 0 0 2px 1px rgba(255, 255, 255, 0.65) inset;
+}
+
+.museum-glow-subtle {
+  box-shadow: 0 10px 40px -15px rgba(142, 155, 191, 0.3);
+}
+
+/* Transition for interactive exhibitions */
+.gallery-transition {
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Soft film grain filter container to replicate classical photography */
+.film-soft-focus {
+  filter: contrast(1.02) brightness(0.98);
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "Cinema Archive",
+  "description": "Every Film Leaves a Trace. 收录电影作品与观影记录，每一部电影都曾短暂照亮某个时刻。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
